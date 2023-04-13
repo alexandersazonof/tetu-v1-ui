@@ -1,0 +1,101 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "./",
+    "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "noImplicitAny": false,
+    "target": "es2020",
+    "module": "es2020",
+    "skipLibCheck": true,
+    "lib": [
+      "es2020",
+      "dom",
+      "esnext.asynciterable"
+    ],
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "@environments/*": [
+        "src/environments/*"
+      ],
+      "@data/*": [
+        "src/app/data/*"
+      ],
+      "@shared/*": [
+        "src/app/shared/*"
+      ],
+      "@helpers": [
+        "src/app/helpers/index.ts"
+      ],
+      "@helpers/*": [
+        "src/app/helpers/*"
+      ],
+      "@services": [
+        "src/app/services/index.ts"
+      ],
+      "@services/*": [
+        "src/app/services/*"
+      ],
+      "@constants": [
+        "src/app/shared/constants/index.ts"
+      ],
+      "@constants/*": [
+        "src/app/shared/constants/*"
+      ],
+      "@models": [
+        "src/app/models/index.ts"
+      ],
+      "@models/*": [
+        "src/app/models/*"
+      ],
+      "@generated/*": [
+        "generated/*"
+      ],
+      "crypto": [
+        "./node_modules/crypto-browserify"
+      ],
+      "stream": [
+        "./node_modules/stream-browserify"
+      ],
+      "assert": [
+        "./node_modules/assert"
+      ],
+      "http": [
+        "./node_modules/stream-http"
+      ],
+      "https": [
+        "./node_modules/https-browserify"
+      ],
+      "os": [
+        "./node_modules/os-browserify"
+      ],
+      "process": [
+        "./node_modules/process/browser"
+      ]
+      // @ui - For test only:
+//      ,"@tetu_io/tetu-ui": [
+//        "libs/ui/src/public-api.ts",
+//        "./node_modules/@tetu_io/tetu-ui"
+//      ]
+    }
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}
