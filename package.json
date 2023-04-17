@@ -9,7 +9,6 @@
     "config:dev": "ts-node ./scripts/setenv.ts --configuration=dev",
     "config:prod": "ts-node ./scripts/setenv.ts --configuration=prod",
     "prepare:dev": "yarn config:dev && yarn build:abi && yarn build:gql",
-//    "prepare:prod": "yarn config:prod && yarn build:abi && yarn build:gql",
     "prepare:prod": "yarn config:prod && yarn build:abi",
     "build:dev": "yarn prepare:dev && ng build --configuration development",
     "build:prod": "yarn prepare:prod && ng build --configuration production",
