@@ -1,0 +1,67 @@
+@use 'grid' as *;
+@use 'variables' as *;
+
+:host {
+  height: 100%;
+}
+
+.container {
+  height: 100%;
+}
+
+.connect {
+  width: 100%;
+  max-width: 1200px;
+  padding: $grid-offset-step * 4;
+}
+
+.main {
+  width: 100%;
+  max-width: 1200px;
+
+  &--desktop,
+  &--tablet {
+    min-height: calc(100% - 200px);
+    margin: 0 auto;
+  }
+
+  router-outlet {
+    display: none;
+  }
+
+  ::ng-deep > * {
+    @extend .g-flex-column__item;
+  }
+}
+
+.header {
+  width: 100%;
+  max-width: 1200px;
+  padding: ($grid-offset-step * 1.5) ($grid-offset-step * 3);
+  padding-right: $grid-offset-step;
+}
+
+.footer {
+  width: 100%;
+  max-width: 1200px;
+}
+
+.account {
+  &__address {
+    font-size: 1rem;
+  }
+
+  &__wallet-divider {
+    margin-left: $grid-offset-step * 10;
+  }
+
+  &__wallet-icon {
+    margin-left: 40px;
+  }
+
+  &__text {
+    margin-left: $grid-offset-step * 5;
+    font-size: 1rem;
+  }
+}
+

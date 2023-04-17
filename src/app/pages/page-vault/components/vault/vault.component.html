@@ -1,0 +1,38 @@
+<div>
+  {{vault?.name || 'Vault name'}}
+</div>
+<div>
+  <div class="button g-flex g-flex--align-center g-flex--justify-center">
+    <tetu-button
+      [isDisabled]="isApproved"
+      label="APPROVE"
+      (click)="onApprove()"
+      buttonStyle="default">
+    </tetu-button>
+  </div>
+  <div class="button g-flex g-flex--align-center g-flex--justify-center">
+    <tetu-button
+      [isDisabled]="!isApproved"
+      label="DEPOSIT"
+      buttonStyle="default">
+    </tetu-button>
+  </div>
+  <div class="button g-flex g-flex--align-center g-flex--justify-center">
+    <tetu-button
+      label="WITHDRAW"
+      buttonStyle="default">
+    </tetu-button>
+  </div>
+  <div class="button g-flex g-flex--align-center g-flex--justify-center">
+    <tetu-button
+      label="WITHDRAW ALL AND CLAIM"
+      buttonStyle="default">
+    </tetu-button>
+  </div>
+  <div class="button g-flex g-flex--align-center g-flex--justify-center">
+    <tetu-button
+      label="CLAIM"
+      buttonStyle="default">
+    </tetu-button>
+  </div>
+</div>

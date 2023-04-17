@@ -1,0 +1,75 @@
+@use 'variables' as *;
+
+.footer {
+  margin: 0 ($grid-offset-step * 4);
+}
+
+.audit {
+  margin-top: $grid-offset-step * 8;
+
+  &__title {
+    margin-right: $grid-offset-step * 10;
+    color: $color-grey;
+    white-space: nowrap;
+  }
+
+  &__image {
+    width: auto;
+    height: 32px;
+    margin-right: $grid-offset-step * 10;
+    opacity: 0.6;
+    transition: all ease ($animation-step * 2);
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.bug {
+  margin-top: $grid-offset-step * 8;
+
+  &__title {
+    margin-right: $grid-offset-step * 10;
+    color: $color-grey;
+    white-space: nowrap;
+  }
+
+  &__image {
+    width: auto;
+    height: 32px;
+    opacity: 0.6;
+    transition: all ease ($animation-step * 2);
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+.description {
+  margin-top: $grid-offset-step * 4;
+  text-align: justify;
+  color: $color-grey;
+}
+
+.icon {
+  margin-top: $grid-offset-step * 4;
+  margin-bottom: $grid-offset-step * 3;
+
+  &__footer {
+    margin-right: $grid-offset-step * 6;
+  }
+}
+
+//@media (max-width: 950px) {
+//  .footer {
+//    margin: 0 ($grid-offset-step * 10);
+//  }
+//}
+//
+//@media (max-width: 850px) {
+//  .footer {
+//    margin: 0 ($grid-offset-step * 5);
+//  }
+//}

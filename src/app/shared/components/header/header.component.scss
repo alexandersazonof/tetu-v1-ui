@@ -1,0 +1,83 @@
+@use 'variables' as *;
+
+.balance {
+  margin-left: $grid-offset-step * 2;
+
+  &--desktop {
+    margin-right: $grid-offset-step * 1.5;
+  }
+}
+
+.header-icon {
+  @extend .pointer;
+
+  padding: $grid-offset-step * 2;
+  color: $color-grey;
+}
+
+.progress-icon {
+  opacity: 0;
+}
+
+.btn-network {
+  margin-left: $grid-offset-step * 3;
+}
+
+.menu {
+  width: 180px;
+  margin-top: -($grid-offset-step * 1.5);
+  margin-left: $grid-offset-step * 14;
+}
+
+.rewards {
+  position: relative;
+  margin-right: $grid-offset-step * 6;
+
+  &__badge {
+    margin-left: $grid-offset-step;
+  }
+
+  &__icon {
+    color: $color-grey;
+  }
+
+  &__label {
+    margin-left: $grid-offset-step * 1.5;
+    user-select: none;
+  }
+}
+
+.wallet {
+  padding-right: $grid-offset-step * 3;
+}
+
+.status {
+  margin-left: $grid-offset-step * 4;
+  margin-right: $grid-offset-step * 3;
+}
+
+.wallet-icon {
+  margin-left: $grid-offset-step * 6;
+  margin-right: $grid-offset-step * 2.5;
+  color: $color-brand;
+}
+
+.tetu {
+  margin-right: $grid-offset-step * 6;
+
+  &__balance {
+    margin-left: $grid-offset-step * 2;
+  }
+}
+
+//@media (max-width: 950px) {
+//  .header {
+//    margin: 0 ($grid-offset-step * 10);
+//  }
+//}
+//
+//@media (max-width: 850px) {
+//  .header {
+//    margin: 0 ($grid-offset-step * 5);
+//  }
+//}

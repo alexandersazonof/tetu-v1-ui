@@ -85,11 +85,12 @@
       "process": [
         "./node_modules/process/browser"
       ]
-      // @ui - For test only:
-//      ,"@tetu_io/tetu-ui": [
-//        "libs/ui/src/public-api.ts",
-//        "./node_modules/@tetu_io/tetu-ui"
-//      ]
+      // @ui - For test only:,,
+      //      ,"@tetu_io/tetu-ui": [
+      //        "libs/ui/src/public-api.ts"
+      //        "../tetu-ui-common/libs/ui/src/public-api.ts"
+      //        "./node_modules/@tetu_io/tetu-ui/libs/ui/src/public-api.ts",
+      //      ]
     }
   },
   "angularCompilerOptions": {

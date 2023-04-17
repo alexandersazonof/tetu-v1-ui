@@ -1,0 +1,148 @@
+@use 'variables' as *;
+
+.content {
+  &__info {
+    padding: ($grid-offset-step * 4) ($grid-offset-step * 6);
+  }
+}
+
+.transactions {
+  background: $color-background;
+
+  &__placeholder {
+    margin: ($grid-offset-step * 3) ($grid-offset-step * 6) ($grid-offset-step * 5);
+    color: $color-grey;
+  }
+
+  &__item {
+    padding: ($grid-offset-step * 3) ($grid-offset-step * 8);
+  }
+
+  &__item-icon {
+    align-self: self-start;
+    padding: $grid-offset-step ($grid-offset-step * 3 ($grid-offset-step * 3) 0);
+  }
+
+  &__item-coin {
+    word-break: break-all;
+  }
+
+  &__item-description {
+    flex: 2;
+    max-width: 100%;
+    color: $color-grey;
+  }
+
+  &__item-description-date {
+    color: $color-grey;
+  }
+
+  &__item-description-text {
+    margin-right: $grid-offset-step;
+  }
+
+  &__item-info-value {
+    margin-left: $grid-offset-step;
+    color: $color-white;
+  }
+
+  &__header {
+    background: $color-background;
+    padding: ($grid-offset-step * 4) ($grid-offset-step * 8) $grid-offset-step;
+  }
+
+  &__item-date {
+    color: $color-grey;
+    margin-left: $grid-offset-step * 6;
+  }
+
+  &__item-label {
+    margin-left: $grid-offset-step * 6;
+  }
+
+  &__icon-pending {
+    font-size: 22px;
+  }
+}
+
+.account {
+  padding: $grid-offset-step ($grid-offset-step * 4);
+  background: $color-dark;
+  border: 1.5px solid $color-grey;
+  border-radius: 8px;
+
+  &__icon {
+    margin-right: $grid-offset-step * 2;
+  }
+}
+
+.controls {
+  &__copy {
+    margin-right: $grid-offset-step * 7;
+    color: $color-grey;
+  }
+
+  &__copied {
+    margin-right: $grid-offset-step * 7;
+    color: $color-brand;
+  }
+
+  &__share {
+    margin-right: $grid-offset-step * 7;
+    color: $color-grey;
+  }
+
+  &__exit {
+    color: $color-grey;
+  }
+}
+
+.color {
+  &--pending {
+    color: $color-el-help;
+  }
+
+  &--success {
+    color: $color-el-value;
+  }
+
+  &--failed {
+    color: $color-el-error;
+  }
+}
+
+.close-icon {
+  margin-left: $grid-offset-step * 6;
+  color: $color-grey;
+  transition: all ease $animation-step;
+
+  &:hover {
+    color: $color-white;
+  }
+}
+
+@media (max-width: 500px) {
+  .transactions {
+    &__header {
+      padding: ($grid-offset-step * 4) ($grid-offset-step * 4);
+    }
+
+    &__item {
+      padding: ($grid-offset-step * 3) ($grid-offset-step * 4);
+    }
+
+    &__item-icon {
+      padding-top: 0;
+    }
+
+    &__item-description {
+      flex: auto;
+      width: 100%;
+      margin-right: $grid-offset-step * 3;
+    }
+
+    &__item-date {
+      margin-right: 0;
+    }
+  }
+}

@@ -1,0 +1,85 @@
+<div
+  class="footer g-flex-column"
+  [class.footer--desktop]="device.isDesktop$ | async">
+  <div class="g-flex g-flex--align-center g-flex--space-between g-flex--wrap">
+    <div class="audit g-flex g-flex--align-center">
+      <div class="audit__title text__paragraph">Audit by</div>
+
+      <a
+        href="https://github.com/peckshield/publications/blob/master/audit_reports/PeckShield-Audit-Report-Tetu-v1.0.pdf">
+        <img
+          class="audit__image pointer"
+          src="assets/images/peckShield--desktop.png"
+          alt="peckShield" />
+      </a>
+
+      <a href="https://defiyield.app/audit-database/tetu.io">
+        <img
+          class="audit__image pointer"
+          src="assets/images/defiyield--desktop.png"
+          alt="defiyield" />
+      </a>
+
+      <a href="https://www.certik.com/projects/tetu">
+        <img
+          class="audit__image pointer"
+          src="assets/images/certik--desktop.svg"
+          alt="certik" />
+      </a>
+    </div>
+
+    <div class="bug g-flex g-flex--align-center">
+      <div class="bug__title text__paragraph">Bug Bounty program</div>
+
+      <a href="https://immunefi.com/bounty/tetu/">
+        <img
+          class="bug__image pointer"
+          src="assets/images/immunefi--desktop.svg"
+          alt="immunefi" />
+      </a>
+    </div>
+  </div>
+
+  <div class="description text__caption g-flex g-flex--justify-center">
+    By using this software, you understand, acknowledge and accept that Tetu and/or the underlying software are provided
+    “as is” and “as available” basis and without warranties or representations of any kind either expressed or implied.
+    Any use of this open source software released under the ISC Internet Systems Consortium license is done at your own
+    risk to the fullest extent permissible pursuant to applicable law any and all liability as well as all warranties,
+    including any fitness for a particular purpose with respect to Tetu and/or the underlying software and the use
+    thereof are disclaimed"
+  </div>
+
+  <div class="icon g-flex g-flex--align-center">
+    <a
+      class="icon__footer pointer"
+      nz-icon
+      nzType="githab-icon"
+      href="https://github.com/tetu-io"
+      target="_blank">
+    </a>
+
+    <a
+      class="icon__footer pointer"
+      nz-icon
+      nzType="gitbook-icon"
+      href="https://docs.tetu.io/tetu-io/"
+      target="_blank">
+    </a>
+
+    <a
+      class="icon__footer pointer"
+      nz-icon
+      nzType="discord-icon"
+      href="https://discord.gg/xs8VESN4yz"
+      target="_blank">
+    </a>
+
+    <a
+      class="icon__footer pointer"
+      nz-icon
+      nzType="twitter-icon"
+      href="https://twitter.com/tetu_io"
+      target="_blank">
+    </a>
+  </div>
+</div>

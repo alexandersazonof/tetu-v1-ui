@@ -1,0 +1,191 @@
+<ng-template #titleTpl>
+  <tetu-modal-title
+    [canClose]="true"
+    [isShowLogo]="false"
+    title="Account"
+    [hasCustomClose]="true"
+    (customClose)="onCloseModal()">
+  </tetu-modal-title>
+</ng-template>
+
+<ng-template #contentTpl>
+  <div class="content">
+    <div class="g-flex-column">
+      <div class="content__info g-flex g-flex--align-center g-flex--space-between">
+        <div class="account g-flex g-flex--align-center">
+          <i
+            class="account__icon icon__skinny"
+            nz-icon
+            nzType="metamask-icon">
+          </i>
+
+          <div class="text__title4">
+            {{ accountFormatted }}
+          </div>
+        </div>
+        <div class="controls g-flex g-flex--align-center">
+          <i
+            *ngIf="!isCopied; else copiedTpl"
+            class="controls__copy icon__basic pointer"
+            nz-icon
+            nzType="copy-icon"
+            (click)="onCopy()">
+          </i>
+
+          <ng-template #copiedTpl>
+            <i
+              class="controls__copied icon__basic"
+              nz-icon
+              nzType="checkmark-icon">
+            </i>
+          </ng-template>
+
+          <i
+            class="controls__share icon__basic pointer"
+            nz-icon
+            nzType="share-icon"
+            (click)="onPolygon()">
+          </i>
+
+          <i
+            class="controls__exit icon__basic pointer"
+            nz-icon
+            nzType="exit-icon"
+            (click)="onDisconnect()">
+          </i>
+        </div>
+      </div>
+
+      <div
+        *ngIf="transactions.length > 0"
+        class="transactions__header g-flex g-flex--space-between">
+        <div class="g-flex text__title3">Transactions</div>
+
+        <tetu-button
+          class="transactions__clear text__paragraph pointer g-flex g-flex--align-center"
+          label="Clear all"
+          buttonStyle="link"
+          size="sm"
+          (hostClick)="onClearAll()">
+        </tetu-button>
+      </div>
+    </div>
+  </div>
+
+  <div class="transactions g-flex-column g-scroll-y">
+    <div
+      *ngIf="transactions.length === 0; else transactionsTpl"
+      class="transactions__placeholder text__body">
+      Your transactions will appear here...
+    </div>
+
+    <ng-template #transactionsTpl>
+      <div
+        *ngFor="let item of transactions"
+        class="transactions__item g-flex g-flex--space-between g-flex--align-center">
+        <i
+          class="transactions__item-icon icon__coin g-flex__item-fixed"
+          nz-icon
+          [nzType]="item.symbol?.toLowerCase() + '-icon' | checkIcon">
+        </i>
+
+        <div class="g-flex g-flex--wrap g-flex--align-center g-flex__item g-flex--space-between">
+          <div class="g-flex__item g-flex-column">
+            <div class="transactions__item-coin g-flex g-flex--align-center text__title5">
+              {{ item.symbol ?? item.description }}
+            </div>
+
+            <div
+              *ngIf="item.amount"
+              class="text__caption g-flex">
+              {{ item.amount }}
+              <ng-container *ngIf="item.amountUsd"> | ${{ item.amountUsd }}</ng-container>
+            </div>
+          </div>
+
+          <ng-container *tetuDeviceIf="['tablet', 'desktop']">
+            <div class="transactions__item-description g-flex g-flex--wrap text__paragraph g-flex g-flex__item">
+              <ng-container *ngTemplateOutlet="description"></ng-container>
+            </div>
+          </ng-container>
+
+          <div class="g-flex g-flex--align-center g-flex__item-fixed">
+            <a
+              class="account__share-icon g-flex"
+              [href]="item.txLink"
+              target="_blank">
+              <i
+                class="icon__basic pointer"
+                nz-icon
+                nzType="share-icon">
+              </i>
+            </a>
+
+            <div
+              *tetuDeviceIf="['tablet', 'desktop']"
+              class="transactions__item-date text__paragraph">
+              {{ item.dateFormatted }}
+            </div>
+
+            <tetu-tooltip
+              class="transactions__item-label"
+              [class.color--pending]="item.status === TransactionStatus.PENDING"
+              [class.color--success]="item.status === TransactionStatus.COMPLETED"
+              [class.color--failed]="item.status === TransactionStatus.FAILED"
+              [ngSwitch]="item.status"
+              [tooltipTitle]="TransactionStatusName[item.status]">
+              <i
+                *ngSwitchCase="TransactionStatus.COMPLETED"
+                class="icon__basic"
+                nz-icon
+                nzType="success-icon">
+              </i>
+
+              <i
+                *ngSwitchCase="TransactionStatus.PENDING"
+                class="transactions__icon-pending icon__basic"
+                nz-icon
+                nzType="transaction-pending">
+              </i>
+
+              <i
+                *ngSwitchCase="TransactionStatus.FAILED"
+                class="icon__basic"
+                nz-icon
+                nzType="error-icon">
+              </i>
+            </tetu-tooltip>
+
+            <i
+              class="close-icon icon__basic g-flex__item-fixed pointer"
+              nz-icon
+              nzType="close-md-icon"
+              (click)="onRemoveTransaction(item)">
+            </i>
+          </div>
+
+          <ng-container *tetuDeviceIf="['mobile']">
+            <div class="transactions__item-description g-flex g-flex--wrap text__paragraph g-flex g-flex__item-fixed">
+              <ng-container *ngTemplateOutlet="description"></ng-container>
+            </div>
+          </ng-container>
+        </div>
+
+        <ng-template #description>
+          <div>
+            <span
+              *ngIf="item.amount"
+              class="transactions__item-description-text">
+              {{ item.description }}
+            </span>
+            <span
+              *tetuDeviceIf="['mobile']"
+              class="transactions__item-description-date text__paragraph">
+              {{ item.dateFormatted }}
+            </span>
+          </div>
+        </ng-template>
+      </div>
+    </ng-template>
+  </div>
+</ng-template>

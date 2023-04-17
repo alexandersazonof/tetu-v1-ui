@@ -1,0 +1,139 @@
+<header
+  class="header g-flex g-flex--align-center g-flex--space-between"
+  [class.header--desktop]="device.isDesktop$ | async"
+  [class.header--tablet]="device.isTablet$ | async">
+  <div
+    class="g-flex g-flex--align-center"
+    [class.g-flex__item]="device.isMobile$ | async">
+    <i
+      *tetuDeviceIf="['mobile']"
+      class="icon__basic"
+      nz-icon
+      nzType="logo-icon">
+    </i>
+
+    <img
+      *tetuDeviceIf="['desktop', 'tablet']"
+      class="logo"
+      src="assets/images/logo.svg"
+      alt="logo" />
+
+    <tetu-tab-set
+      *tetuDeviceIf="['desktop', 'tablet']"
+      class="menu"
+      [tabs]="tabs">
+    </tetu-tab-set>
+
+    <div
+      *tetuDeviceIf="['mobile']"
+      class="balance text__body">
+      {{ '$' + tetuPrice }}
+    </div>
+  </div>
+
+  <div
+    class="g-flex g-flex--align-center"
+    [class.g-flex__item]="device.isMobile$ | async"
+    [class.g-flex--space-between]="device.isMobile$ | async">
+    <i
+      class="progress-icon icon__basic header-icon"
+      nz-icon
+      nzType="progress-icon">
+    </i>
+
+<!--    <div-->
+<!--      class="rewards g-flex g-flex&#45;&#45;align-center pointer"-->
+<!--      (click)="onClickRewards()">-->
+<!--      <i-->
+<!--        class="rewards__icon icon__basic"-->
+<!--        nz-icon-->
+<!--        nzType="rewards-icon"-->
+<!--        (click)="rewardsHandler.emit()">-->
+<!--      </i>-->
+
+<!--      <tetu-badge-->
+<!--        *ngIf="+rewardsUsdValue > 0"-->
+<!--        class="rewards__badge badge&#45;&#45;active"-->
+<!--        [label]="'$' + rewardsUsdValue">-->
+<!--      </tetu-badge>-->
+
+<!--      <div-->
+<!--        *tetuDeviceIf="['desktop', 'tablet']"-->
+<!--        class="rewards__label text__body">-->
+<!--        REWARDS-->
+<!--      </div>-->
+<!--    </div>-->
+
+    <div
+      *tetuDeviceIf="['desktop', 'tablet']"
+      class="tetu g-flex g-flex--align-center">
+      <i
+        class="icon__basic"
+        nz-icon
+        nzType="logo-icon">
+      </i>
+
+      <!-- todo: tetu cost -->
+      <div class="tetu__balance text__body">
+        {{ '$' + tetuPrice }}
+      </div>
+    </div>
+
+    <i
+      *tetuDeviceIf="['mobile']"
+      class="icon__basic header-icon"
+      nz-icon
+      nzType="menu-icon"
+      (click)="menuHandler.emit()">
+    </i>
+
+    <div
+      *tetuDeviceIf="['desktop', 'tablet']"
+      class="network g-flex g-flex--align-center g-flex--space-between">
+      <tetu-select-mobile
+        placeholder="Select a Network"
+        title="Select a Network"
+        [items]="networks"
+        [selectedItem]="selectedNetwork"
+        [additionalLabel]="balance"
+        (selected)="onSelectNetwork($event)">
+      </tetu-select-mobile>
+
+      <tetu-button
+        *ngIf="!accountFormatted; else accountTpl"
+        class="btn-network pointer"
+        label="Connect wallet"
+        buttonStyle="link"
+        (hostClick)="onConnect()">
+      </tetu-button>
+
+      <ng-template #accountTpl>
+        <tetu-action-status
+          [isVisible]="isShowStatusBadge"
+          (click)="onOpenAccount(MODALS_IDS.ACCOUNT)"
+          class="status">
+        </tetu-action-status>
+
+        <div
+          *ngIf="!isShowStatusBadge"
+          class="wallet g-flex g-flex--align-center pointer"
+          (click)="onOpenAccount(MODALS_IDS.ACCOUNT)">
+          <i
+            class="wallet-icon icon__basic"
+            nz-icon
+            nzType="wallet-icon">
+          </i>
+
+          <div class="text__body">
+            {{ accountFormatted }}
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</header>
+
+<tetu-modal-account
+  [account]="account"
+  [modalId]="MODALS_IDS.ACCOUNT">
+</tetu-modal-account>

@@ -1,0 +1,42 @@
+@use 'variables' as *;
+
+.content {
+  padding: ($grid-offset-step * 7) ($grid-offset-step * 4);
+  padding-top: 0;
+}
+
+.modal-footer {
+  margin-top: $grid-offset-step * 18;
+}
+
+.audit {
+  &__title {
+    margin-top: $grid-offset-step * 12;
+    margin-bottom: $grid-offset-step * 3;
+    color: $color-grey;
+  }
+
+  &__image {
+    width: auto;
+    height: 20px;
+  }
+}
+
+.bug {
+  &__title {
+    margin-top: $grid-offset-step * 12;
+    margin-bottom: $grid-offset-step * 3;
+    color: $color-grey;
+  }
+
+  &__image {
+    width: auto;
+    height: 20px;
+  }
+}
+
+.description {
+  margin-top: $grid-offset-step * 12;
+  text-align: center;
+  color: $color-grey;
+}

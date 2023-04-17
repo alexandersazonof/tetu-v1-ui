@@ -1,0 +1,25 @@
+<div>
+  <div class="vault pointer g-flex g-flex--align-center">
+    <div class="vault__name">
+      NAME
+    </div>
+    <div class="vault__tvl">
+      TVL
+    </div>
+    <div>
+      BALANCE
+    </div>
+  </div>
+<!--  [routerLink]="'/vault/' + vault.addr"-->
+  <div (click)="goToVault(vault.addr)" class="vault pointer g-flex g-flex--align-center" *ngFor="let vault of vaults">
+    <div class="vault__name">
+      {{vault.name}}
+    </div>
+    <div class="vault__tvl">
+      $ {{vault.tvlUsdcFormatted}}
+    </div>
+    <div>
+      $ {{vault.userBalanceUsdc || 0}}
+    </div>
+  </div>
+</div>

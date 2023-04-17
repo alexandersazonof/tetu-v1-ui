@@ -31,6 +31,11 @@
                 "glob": "**/*",
                 "input": "./node_modules/@ant-design/icons-angular/src/inline-svg/",
                 "output": "/assets"
+              },
+              {
+                "glob": "**/*",
+                "input": "./node_modules/@tetu_io/tetu-ui/src/assets",
+                "output": "/assets"
               }
             ],
             "styles": [
@@ -39,9 +44,8 @@
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "libs/ui/src/assets/styles",
-                "libs/ui/src/lib/assets/styles",
                 "./node_modules/@tetu_io/tetu-ui/src/assets/styles",
+                "./node_modules/@tetu_io/tetu-ui/src/lib/assets/styles",
                 "node_modules"
               ]
             },
@@ -143,8 +147,6 @@
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
-                "libs/ui/src/assets/styles",
-                "libs/ui/src/lib/assets/styles",
                 "node_modules"
               ]
             },
@@ -157,46 +159,6 @@
             "lintFilePatterns": [
               "src/**/*.ts",
               "src/**/*.html"
-            ]
-          }
-        }
-      }
-    },
-    "ui": {
-      "projectType": "library",
-      "root": "libs/ui",
-      "sourceRoot": "libs/ui/src",
-      "prefix": "tetu",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-angular:ng-packagr",
-          "options": {
-            "project": "libs/ui/ng-package.json"
-          },
-          "configurations": {
-            "production": {
-              "tsConfig": "libs/ui/tsconfig.lib.prod.json"
-            },
-            "development": {
-              "tsConfig": "libs/ui/tsconfig.lib.json"
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "libs/ui/src/test.ts",
-            "tsConfig": "libs/ui/tsconfig.spec.json",
-            "karmaConfig": "libs/ui/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-eslint/builder:lint",
-          "options": {
-            "lintFilePatterns": [
-              "libs/**/*.ts",
-              "libs/**/*.html"
             ]
           }
         }

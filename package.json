@@ -29,9 +29,6 @@
   "lint-staged": {
     "src/**/*.{ts,css,html}": [
       "npm run lint:fix"
-    ],
-    "libs/ui/src/**/*.{ts,css,html}": [
-      "npm run lint:fix:ui"
     ]
   },
   "husky": {
@@ -51,7 +48,8 @@
     "@angular/router": "14.1.0",
     "@ant-design/icons": "4.7.0",
     "@apollo/client": "^3.7.9",
-    "@tetu_io/tetu-ui": "1.0.24",
+    "@ngx-translate/core": "14.0.0",
+    "@tetu_io/tetu-ui": "1.0.28",
     "@typechain/ethers-v5": "10.1.0",
     "@walletconnect/web3-provider": "^1.8.0",
     "apollo-angular": "^4.2.1",

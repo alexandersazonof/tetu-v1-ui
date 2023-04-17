@@ -1,0 +1,59 @@
+<tetu-layout
+  class="g-flex-column g-flex-column__item"
+  [class.g-flex--align-center]="device.isDesktop$ | async"
+  [chainId]="chainId"
+  [account]="account"
+  [balance]="balance">
+  <tetu-wallet-modal
+    [modalId]="MODALS_IDS.WALLET_CONNECT"
+    [account]="account">
+  </tetu-wallet-modal>
+
+  <tetu-header
+    *ngIf="!!account"
+    class="header g-flex-column__item-fixed"
+    [balance]="balance"
+    [rewardsUsdValue]="rewardsUsdValueFormatted"
+    (menuHandler)="onMenu()">
+  </tetu-header>
+
+  <tetu-menu></tetu-menu>
+
+  <div
+    *ngIf="!account"
+    class="connect g-flex g-flex--align-center g-flex--space-between">
+    <i
+      *tetuDeviceIf="['mobile']"
+      class="icon__basic"
+      nz-icon
+      nzType="logo-icon">
+    </i>
+
+    <img
+      *tetuDeviceIf="['desktop']"
+      class="logo"
+      src="assets/images/logo.svg"
+      alt="logo" />
+
+    <tetu-button
+      class="btn pointer"
+      label="Connect wallet"
+      buttonStyle="link"
+      (hostClick)="connectWeb3Modal()">
+    </tetu-button>
+  </div>
+
+  <div class="container g-scroll-y">
+    <main
+      class="main g-flex-column"
+      [class.main--desktop]="device.isDesktop$ | async"
+      [class.main--tablet]="device.isTablet$ | async">
+      <router-outlet #outlet="outlet"></router-outlet>
+    </main>
+
+    <tetu-footer
+      *ngIf="!!account && ((device.isDesktop$ | async) || (device.isTablet$ | async))"
+      class="footer g-flex-column">
+    </tetu-footer>
+  </div>
+</tetu-layout>
