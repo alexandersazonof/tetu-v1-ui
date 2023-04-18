@@ -5,25 +5,25 @@
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
-    "dev": "yarn config:dev && ng serve",
+    "dev": "npm run config:dev && ng serve",
     "config:dev": "ts-node ./scripts/setenv.ts --configuration=dev",
     "config:prod": "ts-node ./scripts/setenv.ts --configuration=prod",
-    "prepare:dev": "yarn config:dev && yarn build:abi && yarn build:gql",
-    "prepare:prod": "yarn config:prod && yarn build:abi",
-    "build:dev": "yarn prepare:dev && ng build --configuration development",
-    "build:prod": "yarn prepare:prod && ng build --configuration production",
+    "prepare:dev": "npm run config:dev && npm run build:abi && npm run build:gql",
+    "prepare:prod": "npm run config:prod && npm run build:abi",
+    "build:dev": "npm run prepare:dev && ng build --configuration development",
+    "build:prod": "npm run prepare:prod && ng build --configuration production",
     "build:abi": "typechain --target ethers-v5 ./abi/**/*.json --out-dir ./generated/abi",
     "build:gql": "graphql-codegen --config ./gql/codegen.yml",
-    "ui:build": "yarn config:dev && ng build ui --configuration production",
+    "ui:build": "npm run config:dev && ng build ui --configuration production",
     "ui:version:patch": "cd dist/ui && sleep 2 && npm version patch",
     "ui:publish": "npm login && cd dist/ui && npm publish --access=public",
-    "ui:build:publish": "yarn ui:build && yarn ui:publish",
+    "ui:build:publish": "npm run ui:build && npm run ui:publish",
     "watch": "ng build --watch --configuration development",
     "test": "ng test --no-watch --no-progress",
     "lint": "eslint \"src/**/*.ts\" && prettier -c ./src",
     "lint:fix": "eslint --fix \"src/**/*.ts\" && prettier -w ./src",
     "lint:fix:ui": "eslint --fix \"libs/ui/src/lib/**/*.ts\" && prettier -w libs/ui/src/lib",
-    "heroku-postbuild": "yarn build:prod",
+    "heroku-postbuild": "npm run build:prod",
     "storybook": "start-storybook -p 6006"
   },
   "lint-staged": {
@@ -33,7 +33,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "yarn lint-staged"
+      "pre-commit": "npm run lint-staged"
     }
   },
   "private": true,
