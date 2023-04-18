@@ -14,6 +14,7 @@ export class CoreAddresses {
   public readonly priceCalculator: string;
   public readonly oldController: string;
   public readonly investFundV2: string;
+  public readonly contractReader: string;
 
   constructor(
     tetu: string,
@@ -31,6 +32,7 @@ export class CoreAddresses {
     priceCalculator: string,
     oldController: string,
     investFundV2: string,
+    contractReader: string,
   ) {
     this.tetu = tetu;
     this.controller = controller;
@@ -47,9 +49,10 @@ export class CoreAddresses {
     this.priceCalculator = priceCalculator;
     this.oldController = oldController;
     this.investFundV2 = investFundV2;
+    this.contractReader = contractReader;
   }
 
   public static empty() {
-    return new CoreAddresses('', '', '', '', '', '', '', '', '', '', [''], '', '', '', '');
+    return new CoreAddresses('', '', '', '', '', '', '', '', '', '', [''], '', '', '', '', '');
   }
 }

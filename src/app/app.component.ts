@@ -206,11 +206,14 @@ export class AppComponent implements OnInit, AfterViewInit {
                   if (balance && v.price > 0) {
                     v.userBalance = +balance.toString()
                     v.userBalanceUsdc = numberToCompact(v.userBalance * v.price / 10 ** v.decimals, 1)
+                    this.changeDetectorRef.detectChanges();
                   }
                 })
             }
           })
           this.vaultDataService.setVaults(vaults)
+          this.changeDetectorRef.detectChanges();
+
         })
     }
   }

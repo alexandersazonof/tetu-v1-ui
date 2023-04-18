@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { VaultComponent } from './components/vault/vault.component';
 import { PageVaultRoutingModule } from "./page-vault-routing.module";
-import { ButtonModule } from "@tetu_io/tetu-ui";
+import { ButtonModule, InputModule } from "@tetu_io/tetu-ui";
 
 
 
@@ -12,7 +12,8 @@ import { ButtonModule } from "@tetu_io/tetu-ui";
   ],
   imports: [
     CommonModule,
-    ButtonModule
+    ButtonModule,
+    InputModule
   ],
   exports: [
     PageVaultRoutingModule

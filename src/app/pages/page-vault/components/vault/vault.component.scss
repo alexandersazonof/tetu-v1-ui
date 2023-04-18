@@ -1,4 +1,10 @@
+@use 'variables' as *;
+
 .button {
   margin-bottom: 5%;
   margin-top: 5%;
+}
+
+.item {
+  margin-top: $grid-offset-step * 4.5;
 }

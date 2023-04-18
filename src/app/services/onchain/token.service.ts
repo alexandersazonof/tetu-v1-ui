@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ProviderService, TransactionDataModel } from "@tetu_io/tetu-ui";
 import { ON_CHAIN_CALL_RETRY } from "@constants";
 import { mergeMap, retry, from, Observable } from "rxjs";
-import { IERC20__factory } from "@generated/abi";
+import { ContractReader__factory, IERC20__factory, SmartVault, SmartVault__factory } from "@generated/abi";
 import { BigNumber, providers } from "ethers";
 import { formatAddress } from "@helpers";
 import { NGXLogger } from "ngx-logger";
@@ -19,10 +19,28 @@ export class TokenService {
     return IERC20__factory.connect(token, signer);
   }
 
+  createContractReader(signer: providers.JsonRpcSigner, chainId: number) {
+    // TODO move
+    return ContractReader__factory.connect('0xCa9C8Fba773caafe19E6140eC0A7a54d996030Da', signer);
+  }
+
+  private createSmartVault(vault: string, signer: providers.JsonRpcSigner): SmartVault {
+    return SmartVault__factory.connect(vault, signer)
+  }
+
   balanceOf$(account: string, token: string, adr: string): Observable<BigNumber> {
     return this.providerService.getSigner$(account).pipe(
       mergeMap(signer => {
         return this.createERC20(token, signer).balanceOf(adr)
+      }),
+      retry(ON_CHAIN_CALL_RETRY),
+    );
+  }
+
+  decimals$(account: string, token: string): Observable<number> {
+    return this.providerService.getSigner$(account).pipe(
+      mergeMap(signer => {
+        return this.createSmartVault(token, signer).decimals()
       }),
       retry(ON_CHAIN_CALL_RETRY),
     );
@@ -64,4 +82,5 @@ export class TokenService {
       }),
     );
   }
+
 }

@@ -20,6 +20,7 @@ export class SepoliaCoreAddresses {
     '', // price calculator
     '', // old controller
     '', // investFundV2
+    '',
   );
 }
 

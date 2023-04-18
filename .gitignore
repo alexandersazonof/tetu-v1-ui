@@ -49,3 +49,4 @@ src/environments
 /libs/ui/node_modules/
 /libs/ui/.angular/
 /libs/ui/src/lib/core/environment/environment.ts
+/libs/

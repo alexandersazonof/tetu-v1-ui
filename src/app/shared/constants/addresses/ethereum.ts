@@ -1,6 +1,7 @@
 import { CoreAddresses } from '@constants/addresses/core-addresses';
 
-export class PolygonAddresses {
+export class EthereumAddresses {
+  // TODO change addresses
   public static ADDRESSES = new CoreAddresses(
     '0x255707B70BF90aa112006E1b07B9AeA6De021424', // tetu
     '0x33b27e0A2506a4A2FBc213a01C51d0451745343a', // controller
@@ -20,6 +21,6 @@ export class PolygonAddresses {
     '0x0B62ad43837A69Ad60289EEea7C6e907e759F6E8', // price calculator
     '0x6678814c273d5088114B6E40cC49C8DB04F9bC29', // old controller
     '0x51c9A17660fC74a44A4aEf1474f100AdB789eeA5', // investFundV2
-    '0xCa9C8Fba773caafe19E6140eC0A7a54d996030Da',
+    '',
   );
 }

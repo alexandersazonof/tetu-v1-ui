@@ -15,6 +15,7 @@ export class VaultModel {
   userBalanceUsdc: string = '0';
   price = 0;
   underlying: string;
+  underlyingDecimals = 18;
 
   constructor(
     addr: string,

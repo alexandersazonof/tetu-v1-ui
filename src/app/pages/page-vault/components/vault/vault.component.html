@@ -11,28 +11,65 @@
     </tetu-button>
   </div>
   <div class="button g-flex g-flex--align-center g-flex--justify-center">
-    <tetu-button
-      [isDisabled]="!isApproved"
-      label="DEPOSIT"
-      buttonStyle="default">
-    </tetu-button>
+    <div>
+      <div class="item">
+        Available: {{underlyingBalance || '0'}}
+      </div>
+      <div class="item">
+        <tetu-input
+          [formControl]="inputDepositControl"
+          inputType="number">
+        </tetu-input>
+      </div>
+      <div class="item">
+        <tetu-button
+          [isDisabled]="!isApproved"
+          label="DEPOSIT"
+          (click)="onDeposit()"
+          buttonStyle="default">
+        </tetu-button>
+      </div>
+    </div>
   </div>
   <div class="button g-flex g-flex--align-center g-flex--justify-center">
-    <tetu-button
-      label="WITHDRAW"
-      buttonStyle="default">
-    </tetu-button>
+    <div>
+      <div class="item">
+        Available: {{vaultBalance}} {{vault?.symbol || ''}}
+      </div>
+      <div class="item">
+        <tetu-input
+          [formControl]="inputWithdrawControl"
+          inputType="number">
+        </tetu-input>
+      </div>
+      <div class="item">
+        <tetu-button
+          label="WITHDRAW"
+          (click)="onWithdraw()"
+          buttonStyle="default">
+        </tetu-button>
+      </div>
+    </div>
   </div>
   <div class="button g-flex g-flex--align-center g-flex--justify-center">
     <tetu-button
       label="WITHDRAW ALL AND CLAIM"
+      (click)="onExit()"
       buttonStyle="default">
     </tetu-button>
   </div>
   <div class="button g-flex g-flex--align-center g-flex--justify-center">
-    <tetu-button
-      label="CLAIM"
-      buttonStyle="default">
-    </tetu-button>
+    <div>
+      <div class="item">
+        Rewards: $ {{rewardsUsdc}}
+      </div>
+      <div class="item">
+        <tetu-button
+          label="CLAIM"
+          (click)="onClaim()"
+          buttonStyle="default">
+        </tetu-button>
+      </div>
+    </div>
   </div>
 </div>
