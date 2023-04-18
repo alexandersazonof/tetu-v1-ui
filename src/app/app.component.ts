@@ -7,10 +7,6 @@ import {
   OnInit,
 } from '@angular/core';
 import { Router } from '@angular/router';
-// import { UserEntity } from '@generated/gql';
-// import { formatAddress } from '@helpers';
-// import { SubgraphService } from '@services';
-// import { RewardsDataService } from '@services/data/rewards-data.service';
 import { MODALS_IDS } from '@shared/constants/modals.constant';
 import {
   DeviceService,
