@@ -21,17 +21,17 @@ app.use(
 );
 app.disable("x-powered-by");
 
-app.use(favicon(__dirname + "/dist/tetu-v2-ui/favicon.png"));
+app.use(favicon(__dirname + "/dist/tetu-v1-ui/favicon.png"));
 // the __dirname is the current directory from where the script is running
 app.use(express.static(__dirname));
-app.use(express.static(path.join(__dirname, "dist/tetu-v2-ui")));
+app.use(express.static(path.join(__dirname, "dist/tetu-v1-ui")));
 
 app.get("/ping", function (req, res) {
   return res.send("pong");
 });
 
 app.get("/*", function (req, res) {
-  res.sendFile(path.join(__dirname + "/dist/tetu-v2-ui/index.html"));
+  res.sendFile(path.join(__dirname + "/dist/tetu-v1-ui/index.html"));
 });
 
 app.listen(port);
