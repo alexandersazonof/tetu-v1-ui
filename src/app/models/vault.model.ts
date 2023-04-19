@@ -16,6 +16,12 @@ export class VaultModel {
   price = 0;
   underlying: string;
   underlyingDecimals = 18;
+  rewardTokens: string[] = [];
+  rewardsApr: number[] = [];
+  fullApr: number = 0;
+  swapFeesAprDaily: number = 0;
+  tokenUnderlyingApr: TokenUnderlyingAprModel | undefined;
+  rewardTokensBal: number[] = [];
 
   constructor(
     addr: string,
@@ -36,8 +42,12 @@ export class VaultModel {
     this.tvlUsdc = tvlUsdc;
     this.active = active;
     this.tvl = tvl;
-    this.tvlUsdcFormatted = numberToCompact(+formatUnits(tvlUsdc, decimals), 2)
+    this.tvlUsdcFormatted = numberToCompact(+formatUnits(tvlUsdc, 18), 2)
     this.price = this.tvlUsdc / this.tvl;
     this.underlying = underlying;
   }
+}
+
+export class TokenUnderlyingAprModel {
+  total: number = 0;
 }

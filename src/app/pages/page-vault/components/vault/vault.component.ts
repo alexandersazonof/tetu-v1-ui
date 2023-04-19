@@ -157,7 +157,7 @@ export class VaultComponent implements OnInit {
   }
 
   onApprove(): void {
-    if (this.vault && this.account) {
+    if (this.vault && this.account && !this.isApproved) {
       const amount = BN_MAX_UINT
       this.tokenService.approve$(this.account, this.vault.underlying, getCoreAddresses(this.chainId).depositHelper, amount)
         .pipe(takeUntil(this.destroy$))

@@ -75,14 +75,6 @@ export const numberToCompact = (value: number, fractionDigits = 2) => {
   }).format(value);
 };
 
-export function veIdToAddress(veId: number) {
-  const result = BigNumber.from(veId).toHexString();
-  if (result.length < 42) {
-    return '0x' + '0'.repeat(42 - result.length) + result.replace('0x', '');
-  } else {
-    return result;
-  }
-}
 
 export class Formatters {
   private _value: string;

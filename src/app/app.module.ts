@@ -5,7 +5,7 @@ import { LOCALE_ID, NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AppTranslateModule, DeviceIfDirectiveModule, IconsProviderModule, UiModule } from '@tetu_io/tetu-ui';
+import { AppTranslateModule, DeviceIfDirectiveModule, UiModule } from '@tetu_io/tetu-ui';
 import { enUS } from 'date-fns/locale';
 import { en_US, NZ_DATE_LOCALE, NZ_I18N } from 'ng-zorro-antd/i18n';
 import { NzModalModule } from 'ng-zorro-antd/modal';
@@ -16,6 +16,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GraphQLModule } from './graphql.module';
 import { SharedModule } from "@shared/shared.module";
+import { CustomIconsProviderModule } from "@helpers/icons/icons-provider.module";
 
 registerLocaleData(localeRu);
 
@@ -34,7 +35,7 @@ registerLocaleData(localeRu);
       disableFileDetails: true,
       timestampFormat: 'hh:mm:ss',
     }),
-    IconsProviderModule,
+    CustomIconsProviderModule,
     NzModalModule,
     UiModule,
     NzNotificationModule,

@@ -1,12 +1,65 @@
 
 .vault {
-  margin-bottom: 5%;
   margin-top: 5%;
+  margin-bottom: 20px;
+
+  &__item {
+    margin-bottom: 10px;
+    padding: 20px;
+    boder-radius: 8px;
+    box-shadow: 0 10px 10px rgb(0 0 0 / 20%);
+    border-radius: 8px;
+    background: linear-gradient(180deg,#293345,#1c2533 107.5%)!important;;
+    overflow: hidden;
+
+    &:hover {
+      background: linear-gradient(180deg,#465067 0,#1b283e)!important;
+    }
+    &__name {
+      width: 30%;
+      &__title {
+        margin-left: 5%;
+      }
+    }
+
+    &__tvl {
+      width: 20%;
+    }
+
+    &__apy {
+      width: 10%;
+    }
+
+    &__balance {
+      width: 10%;
+    }
+
+    &__rewards {
+      width: 30%;
+
+      &__icon {
+        margin-right: -5px;
+    }
+    }
+  }
 
   &__name {
-    width: 40%;
+    width: 30%;
   }
+
   &__tvl {
-    width: 40%;
+    width: 20%;
+  }
+
+  &__apy {
+    width: 10%;
+  }
+
+  &__balance {
+    width: 10%;
+  }
+
+  &__rewards {
+    width: 30%;
   }
 }

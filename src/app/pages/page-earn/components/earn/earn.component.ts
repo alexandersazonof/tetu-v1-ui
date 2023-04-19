@@ -8,6 +8,8 @@ import { formatUnits } from "ethers/lib/utils";
 import { TokenService } from '@services/onchain/token.service';
 import { getNetwork } from "@services/web3modal-ts/helpers/utils";
 import { Router } from '@angular/router';
+import { calculateApyByVault } from "@helpers/apr.helper";
+import { getIcon } from "@constants/icons/icons";
 
 @Component({
   selector: 'tetu-earn',
@@ -56,7 +58,7 @@ export class EarnComponent implements OnInit {
         .subscribe(data => {
           this.vaults = data.filter(v => v.active);
           this.vaults.forEach(v => {
-            v.tvlUsdcFormatted = numberToCompact(+formatUnits(v.tvlUsdc, v.decimals), 2)
+            v.tvlUsdcFormatted = numberToCompact(+formatUnits(v.tvlUsdc, 18), 2)
             v.price = v.tvlUsdc / v.tvl
             this.tokenService.balanceOf$(this.account, v.addr, this.account)
               .pipe(takeUntil(this.destroy$))
@@ -76,5 +78,22 @@ export class EarnComponent implements OnInit {
   goToVault(address: string): void {
     this.router.navigate(['/vault', address]);
     this.vaultDataService.setActiveVault(this.vaults.find(vault => address.toLowerCase() == vault.addr.toLowerCase()));
+  }
+
+  calculateApy(vault: VaultModel): string {
+    const apy = calculateApyByVault(vault);
+    return numberToCompact(apy.getSumApy(), 2)
+  }
+
+  getIcon(address: string): string {
+    return getIcon(this.chainId, address)
+  }
+
+  canShowRewards(vault: VaultModel): boolean {
+    return vault.rewardTokensBal.filter(r => r != 0).length > 0
+  }
+
+  showRewardIcon(vault: VaultModel, index: number): boolean {
+    return vault.rewardTokensBal[index] != 0;
   }
 }

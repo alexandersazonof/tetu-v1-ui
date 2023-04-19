@@ -7,3 +7,7 @@
 @use 'icons' as *;
 @use 'typography' as *;
 @use 'ui' as *;
+
+.title {
+  color: $color-grey;
+}

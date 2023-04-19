@@ -193,7 +193,7 @@ export class AppComponent implements OnInit, AfterViewInit {
         .subscribe(data => {
           const vaults = data.filter(v => v.active);
           vaults.forEach(v => {
-            v.tvlUsdcFormatted = numberToCompact(+formatUnits(v.tvlUsdc, v.decimals), 2)
+            v.tvlUsdcFormatted = numberToCompact(+formatUnits(v.tvlUsdc, 18), 2)
             v.price = v.tvlUsdc / v.tvl
             if (this.account) {
               this.tokenService.balanceOf$(this.account, v.addr, this.account)

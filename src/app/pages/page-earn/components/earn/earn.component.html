@@ -1,25 +1,62 @@
 <div>
   <div class="vault pointer g-flex g-flex--align-center">
-    <div class="vault__name">
+    <div class="title text__title5 vault__name">
       NAME
     </div>
-    <div class="vault__tvl">
+    <div class="title text__title5 vault__tvl">
       TVL
     </div>
-    <div>
+    <div class="title text__title5 vault__apy">
+      APY
+    </div>
+    <div class="title text__title5 vault__balance">
       BALANCE
     </div>
-  </div>
-<!--  [routerLink]="'/vault/' + vault.addr"-->
-  <div (click)="goToVault(vault.addr)" class="vault pointer g-flex g-flex--align-center" *ngFor="let vault of vaults">
-    <div class="vault__name">
-      {{vault.name}}
+    <div class="title text__title5 vault__rewards">
+      REWARDS
     </div>
-    <div class="vault__tvl">
+  </div>
+  <div (click)="goToVault(vault.addr)" class="vault__item pointer g-flex g-flex--align-center" *ngFor="let vault of vaults">
+    <div class="vault__item__name">
+      <div class="g-flex g-flex--align-center">
+        <i
+          class="icon__coin g-flex__item-fixed"
+          nz-icon
+          [nzType]="getIcon(vault.underlying)">
+        </i>
+        <div class="vault__item__name__title">
+          <div class="text__title4">
+            {{vault.name}}
+          </div>
+          <div class="text__title5 title">
+            Balancer
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="vault__item__tvl">
       $ {{vault.tvlUsdcFormatted}}
     </div>
-    <div>
+    <div class="vault__item__apy">
+      {{calculateApy(vault)}} %
+    </div>
+    <div class="vault__item__balance">
       $ {{vault.userBalanceUsdc || 0}}
+    </div>
+    <div class="g-flex g-flex--align-center vault__item__rewards">
+      <div *ngIf="!canShowRewards(vault); else showRewards">
+        -
+      </div>
+      <ng-template #showRewards>
+        <div *ngFor="let reward of vault.rewardTokens; index as i">
+          <i
+            *ngIf="showRewardIcon(vault, i)"
+            class="vault__item__rewards__icon icon__coin-small g-flex__item-fixed"
+            nz-icon
+            [nzType]="getIcon(reward)">
+          </i>
+        </div>
+      </ng-template>
     </div>
   </div>
 </div>

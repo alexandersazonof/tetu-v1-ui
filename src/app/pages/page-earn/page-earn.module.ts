@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { EarnComponent } from './components/earn/earn.component';
 import { PageEarnRoutingModule } from "./page-earn-routing.module";
+import { NzIconModule } from "ng-zorro-antd/icon";
 
 
 
@@ -11,7 +12,8 @@ import { PageEarnRoutingModule } from "./page-earn-routing.module";
   ],
   imports: [
     CommonModule,
-    PageEarnRoutingModule
+    PageEarnRoutingModule,
+    NzIconModule
   ],
   exports: [
     PageEarnRoutingModule
