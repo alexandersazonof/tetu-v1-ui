@@ -13,7 +13,7 @@ import { NzIconModule } from "ng-zorro-antd/icon";
   imports: [
     CommonModule,
     PageEarnRoutingModule,
-    NzIconModule
+    NzIconModule,
   ],
   exports: [
     PageEarnRoutingModule

@@ -10,6 +10,7 @@ import { getNetwork } from "@services/web3modal-ts/helpers/utils";
 import { Router } from '@angular/router';
 import { calculateApyByVault } from "@helpers/apr.helper";
 import { getIcon } from "@constants/icons/icons";
+import { getPlatformByVault } from "@helpers/platform.helper";
 
 @Component({
   selector: 'tetu-earn',
@@ -95,5 +96,13 @@ export class EarnComponent implements OnInit {
 
   showRewardIcon(vault: VaultModel, index: number): boolean {
     return vault.rewardTokensBal[index] != 0;
+  }
+
+  getPlatform(vault: VaultModel): string {
+    return getPlatformByVault(vault);
+  }
+
+  showRedoIcon(vault: VaultModel): boolean {
+    return vault.rewardsApr.filter(r => r > 0).length > 0;
   }
 }

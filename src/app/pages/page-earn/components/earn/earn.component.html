@@ -16,7 +16,8 @@
       REWARDS
     </div>
   </div>
-  <div (click)="goToVault(vault.addr)" class="vault__item pointer g-flex g-flex--align-center" *ngFor="let vault of vaults">
+  <div (click)="goToVault(vault.addr)" class="vault__item pointer g-flex g-flex--align-center"
+       *ngFor="let vault of vaults">
     <div class="vault__item__name">
       <div class="g-flex g-flex--align-center">
         <i
@@ -28,8 +29,8 @@
           <div class="text__title4">
             {{vault.name}}
           </div>
-          <div class="text__title5 title">
-            Balancer
+          <div class="text__title6 title">
+            {{getPlatform(vault)}}
           </div>
         </div>
       </div>
@@ -38,7 +39,27 @@
       $ {{vault.tvlUsdcFormatted}}
     </div>
     <div class="vault__item__apy">
-      {{calculateApy(vault)}} %
+      <div class="g-flex g-flex--align-center">
+        <span class="vault__item__apy__item icon">
+          <i
+            class="icon__skinny g-flex__item-fixed"
+            nz-icon
+            [nzType]="'calculator-basic-icon'">
+          </i>
+        </span>
+        <span
+          *ngIf="showRedoIcon(vault)"
+          class="vault__item__apy__item icon">
+          <i
+            class="icon__skinny g-flex__item-fixed"
+            nz-icon
+            [nzType]="'redo-icon'">
+          </i>
+        </span>
+        <div>
+          {{calculateApy(vault)}} %
+        </div>
+      </div>
     </div>
     <div class="vault__item__balance">
       $ {{vault.userBalanceUsdc || 0}}

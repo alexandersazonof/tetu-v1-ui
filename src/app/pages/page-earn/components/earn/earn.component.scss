@@ -27,7 +27,10 @@
     }
 
     &__apy {
-      width: 10%;
+      width: 20%;
+      &__item {
+        margin-right: 5px;
+      }
     }
 
     &__balance {
@@ -35,7 +38,7 @@
     }
 
     &__rewards {
-      width: 30%;
+      width: 20%;
 
       &__icon {
         margin-right: -5px;
@@ -52,7 +55,7 @@
   }
 
   &__apy {
-    width: 10%;
+    width: 20%;
   }
 
   &__balance {
@@ -60,6 +63,6 @@
   }
 
   &__rewards {
-    width: 30%;
+    width: 20%;
   }
 }

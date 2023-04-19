@@ -45,6 +45,8 @@ export * from './basic/VaultInfoIcon';
 export * from './basic/WalletIcon';
 export * from './basic/arrow-forward';
 export * from './basic/arrow-back';
+export * from './basic/calculator';
+export * from './basic/redo';
 
 /* Skinny Icons */
 export * from './skinny/AttentionMdIcon';

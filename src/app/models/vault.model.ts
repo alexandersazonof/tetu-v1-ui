@@ -22,6 +22,7 @@ export class VaultModel {
   swapFeesAprDaily: number = 0;
   tokenUnderlyingApr: TokenUnderlyingAprModel | undefined;
   rewardTokensBal: number[] = [];
+  subStrategies: SubStrategyModel[] = [];
 
   constructor(
     addr: string,
@@ -50,4 +51,8 @@ export class VaultModel {
 
 export class TokenUnderlyingAprModel {
   total: number = 0;
+}
+
+export class SubStrategyModel {
+  platform: number = 0;
 }
