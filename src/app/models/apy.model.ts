@@ -33,6 +33,27 @@ export class ApyDetailsModel {
     }
     return total
   }
+
+  getSumApr(): number {
+    let total = 0;
+    if (this.autoCompound) {
+      total = this.autoCompound.apr;
+    }
+
+    if (this.underlying) {
+      total = Number(total) + Number(this.underlying.apr);
+    }
+
+    if (this.tradingFee) {
+      total = Number(this.tradingFee.apr) + Number(total);
+    }
+
+    if (this.rewards.length > 0) {
+      this.rewards.forEach(i => total = Number(i.apr) + Number(total))
+    }
+
+    return total
+  }
 }
 
 export class ApyModel {

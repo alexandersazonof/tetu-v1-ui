@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="title">
+    {{getDescription()}}
+    <div [innerHTML]="getAdditionalDescription()"></div>
+  </div>
+  <div>
+    <div class="text__title4">
+      Autocompound:
+    </div>
+    <div class="title">
+      Autocompounded APY calculated with daily compound period.
+      It does not include any additional yield (swap fees, staking profit and etc).
+    </div>
+    <div class="text__title5" *ngIf="canShowApyAutoCompound()">
+      Vault: <span class="title">{{formatNumber(apy?.autoCompound?.apr)}}% APR ({{formatNumber(apy?.autoCompound?.apy)}}% APY)</span>
+    </div>
+    <div class="text__title5" *ngIf="canShowUnderlyingApy()">
+      Underlying tokens: <span class="title">{{formatNumber(apy?.underlying?.apr)}}% APR ({{formatNumber(apy?.underlying?.apy)}}% APY)</span>
+    </div>
+    <div class="text__title5" *ngIf="canShowTradingFeeApy()">
+      Trading Fees: <span class="title">{{formatNumber(apy?.tradingFee?.apr)}}% APR ({{formatNumber(apy?.tradingFee?.apy)}}% APY)</span>
+    </div>
+  </div>
+  <div *ngIf="canShowApyReward()">
+    <div class="text__title4">
+      Claimable rewards:
+    </div>
+    <div class="title">
+      Claimable rewards APY calculated with monthly compound period
+    </div>
+    <div *ngFor="let reward of vault?.rewardTokens || []; index as i">
+      <div *ngIf="canShowRewardIcon(i)">
+        <i
+          class="vault__item__rewards__icon .icon__small g-flex__item-fixed"
+          nz-icon
+          [nzType]="getIcon(reward)">
+        </i>
+        {{rewardTokenNames[i]}}
+        <span class="title">{{getAprForRewardToken(i)}}% APR ({{getApyForRewardToken(i)}}% APY)</span>
+      </div>
+    </div>
+  </div>
+  <div class="text__title4">
+    Total: {{getTotalApr()}}% APR ({{getTotalApy()}}% APY)
+  </div>
+</div>

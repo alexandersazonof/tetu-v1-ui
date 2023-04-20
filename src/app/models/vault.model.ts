@@ -23,6 +23,11 @@ export class VaultModel {
   tokenUnderlyingApr: TokenUnderlyingAprModel | undefined;
   rewardTokensBal: number[] = [];
   subStrategies: SubStrategyModel[] = [];
+  assets: string[] = [];
+  buyBackRatio: number = 0;
+  // TODO fetch from BalancerBoostCalculatror getBalancerBoostInfo
+  balancerBoost: number = 0;
+  ableToBoostUsd: number = 0;
 
   constructor(
     addr: string,

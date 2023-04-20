@@ -46,6 +46,15 @@ export class TokenService {
     );
   }
 
+  name$(account: string, token: string): Observable<string> {
+    return this.providerService.getSigner$(account).pipe(
+      mergeMap(signer => {
+        return this.createSmartVault(token, signer).name()
+      }),
+      retry(ON_CHAIN_CALL_RETRY),
+    );
+  }
+
   allowance$(token: string, owner: string, spender: string): Observable<BigNumber> {
     return this.providerService.getSigner$(owner).pipe(
       mergeMap(signer => {

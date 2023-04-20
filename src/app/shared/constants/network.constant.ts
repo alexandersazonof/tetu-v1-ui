@@ -14,3 +14,6 @@ export const NETWORKS: SelectItemModel[] = [
     rpcUrl: 'https://rpc.ankr.com/eth',
   }
 ]
+
+export const ETH_CHAIN_ID = 1;
+export const POLYGON_CHAIN_ID = 137;

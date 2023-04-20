@@ -46,3 +46,18 @@ export const PLATFORM : { [key:string]:string; } = {
   '43': 'COMPOUND',
   '44': '0VIX',
 }
+
+export const QUICK_SWAP_PLATFORM = 2;
+export const SUSHI_SWAP_PLATFORM = 3;
+export const IRON_SWAP_PLATFORM = 5;
+export const CURVE_PLATFORM = 7;
+export const DINO_PLATFORM = 8;
+export const TETU_SWAP_PLATFORM = 12;
+export const SPOOKY_SWAP_PLATFORM = 13;
+export const AAVE_PLATFORM = 14;
+export const SCREAM_PLATFORM = 18;
+export const KLIMA_PLATFORM = 19;
+export const VESQ_PLATFORM = 20;
+export const TETU_PLATFORM = 29;
+export const BALANCER_PLATFORM = 36;
+export const CONE_PLATFORM = 41;
