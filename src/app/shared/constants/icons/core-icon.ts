@@ -18,9 +18,17 @@ export class CoreIcons {
   mesh: string;
   tngbl: string;
   qiBpt: string;
+  bbTUsd: string;
+  xbbAmUsd: string;
+  qi: string;
+  liquidMatic: string;
+  sphere: string;
+  usdr: string;
+  tetuBal80weth20bal: string;
+  uma: string;
 
 
-  constructor(tetu: string, dxTetu: string, tetuBal: string, bbAmUsd: string, lido: string, tetuQi: string, tetuMesh: string, usdc: string, dai: string, usdt: string, wmatic: string, wbtc: string, weth: string, link: string, balancer: string, stMatic: string, mesh: string, tngbl: string, qiBpt: string) {
+  constructor(tetu: string, dxTetu: string, tetuBal: string, bbAmUsd: string, lido: string, tetuQi: string, tetuMesh: string, usdc: string, dai: string, usdt: string, wmatic: string, wbtc: string, weth: string, link: string, balancer: string, stMatic: string, mesh: string, tngbl: string, qiBpt: string, bbTUsd: string, xbbAmUsd: string, qi: string, liquidMatic: string, sphere: string, usdr: string, tetuBal80weth20bal: string, uma: string) {
     this.tetu = tetu;
     this.dxTetu = dxTetu;
     this.tetuBal = tetuBal;
@@ -40,5 +48,13 @@ export class CoreIcons {
     this.mesh = mesh;
     this.tngbl = tngbl;
     this.qiBpt = qiBpt;
+    this.bbTUsd = bbTUsd;
+    this.xbbAmUsd = xbbAmUsd;
+    this.qi = qi;
+    this.liquidMatic = liquidMatic;
+    this.sphere = sphere;
+    this.usdr = usdr;
+    this.tetuBal80weth20bal = tetuBal80weth20bal;
+    this.uma = uma;
   }
 }

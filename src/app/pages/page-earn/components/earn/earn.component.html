@@ -18,13 +18,16 @@
   </div>
   <div (click)="goToVault(vault.addr)" class="vault__item pointer g-flex g-flex--align-center"
        *ngFor="let vault of vaults">
+    <div class="vault__item__icon">
+      <i
+        *ngFor="let icon of getIconForVault(vault)"
+        class="icon__coin g-flex__item-fixed vault__item__icon__item"
+        nz-icon
+        [nzType]="icon">
+      </i>
+    </div>
     <div class="vault__item__name">
       <div class="g-flex g-flex--align-center">
-        <i
-          class="icon__coin g-flex__item-fixed"
-          nz-icon
-          [nzType]="getIcon(vault.underlying)">
-        </i>
         <div class="vault__item__name__title">
           <div class="text__title4">
             {{vault.name}}

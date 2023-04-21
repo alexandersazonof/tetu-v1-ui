@@ -7,6 +7,18 @@ const CORE = new Map<number, CoreIcons>([
   [1, PolygonIcons.ICONS],
 ]);
 
+export const DEFAULT_ICON = 'unknown-icon';
+
+export const EXCLUDE_VAULT_ICON = [
+  // Balancer stMATIC Stable Pool
+  '0x8159462d255c1d24915cb51ec361f700174cd994'.toLowerCase(),
+  // Balancer MaticX Stable Pool
+  '0xb20fc01d21a50d2c734c4a1262b4404d41fa7bf0'.toLowerCase(),
+  // Balancer tetuQi StablePool
+  '0x05f21bacc4fd8590d1eaca9830a64b66a733316c'.toLowerCase(),
+
+]
+
 export function getIcon(chainId: number, address: string): string {
   const icon = CORE.get(chainId);
   if (!icon) {
@@ -20,6 +32,8 @@ export function getIcon(chainId: number, address: string): string {
       return 'xtetu-icon';
     case icon.tetuBal:
       return 'tetu-bal-icon';
+    case icon.xbbAmUsd:
+      return 'bb-am-usd-icon';
     case icon.bbAmUsd:
       return 'bb-am-usd-icon';
     case icon.lido:
@@ -42,7 +56,29 @@ export function getIcon(chainId: number, address: string): string {
       return 'weth-icon';
     case icon.link:
       return 'link-icon';
+    case icon.bbTUsd:
+      return 'bb-t-usd-icon'
+    case icon.qi :
+      return 'qi-icon';
+    case icon.mesh:
+      return 'mesh-icon';
+    case icon.stMatic:
+      return 'st-matic-icon';
+    case icon.balancer:
+      return 'bal-icon';
+    case icon.liquidMatic:
+      return 'lq-matic-icon';
+    case icon.sphere:
+      return 'sphere-icon';
+    case icon.usdr:
+      return 'usdr-icon';
+    case icon.tetuBal80weth20bal:
+      return 'tetu-bal-icon';
+    case icon.tngbl:
+      return 'tngbl-icon';
+    case icon.uma:
+      return 'uma-icon';
   }
 
-  return 'unknown-icon';
+  return DEFAULT_ICON;
 }

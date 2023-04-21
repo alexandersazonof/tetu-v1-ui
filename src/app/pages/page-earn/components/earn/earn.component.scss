@@ -15,11 +15,19 @@
     &:hover {
       background: linear-gradient(180deg,#465067 0,#1b283e)!important;
     }
+    &__icon {
+      width: 4%;
+      &__item {
+        margin-right: -12px;
+      }
+    }
     &__name {
-      width: 30%;
+      width: 26%;
       &__title {
         margin-left: 5%;
       }
+
+
     }
 
     &__tvl {

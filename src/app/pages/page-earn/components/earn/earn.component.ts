@@ -9,7 +9,7 @@ import { TokenService } from '@services/onchain/token.service';
 import { getNetwork } from "@services/web3modal-ts/helpers/utils";
 import { Router } from '@angular/router';
 import { calculateApyByVault } from "@helpers/apr.helper";
-import { getIcon } from "@constants/icons/icons";
+import { DEFAULT_ICON, EXCLUDE_VAULT_ICON, getIcon } from "@constants/icons/icons";
 import { getPlatformByVault } from "@helpers/platform.helper";
 
 @Component({
@@ -84,6 +84,15 @@ export class EarnComponent implements OnInit {
   calculateApy(vault: VaultModel): string {
     const apy = calculateApyByVault(vault);
     return numberToCompact(apy.getSumApy(), 2)
+  }
+
+  getIconForVault(vault: VaultModel): string[] {
+    const result = this.getIcon(vault.underlying);
+    if (result != DEFAULT_ICON) {
+      return [result];
+    }
+
+    return vault.assets.filter(asset => !EXCLUDE_VAULT_ICON.includes(asset.toLowerCase())).map(asset => this.getIcon(asset))
   }
 
   getIcon(address: string): string {

@@ -119,6 +119,13 @@ export * from './vault/LidoIcon';
 export * from './vault/TetuQiIcon';
 export * from './vault/TetuMeshIcon';
 export * from './vault/linkIcon';
+export * from './vault/BBtUsd'
+export * from './vault/StMaticIcon';
+export * from './vault/LiquidMaticIcon';
+export * from './vault/SphereIcon';
+export * from './vault/UsdrIcon';
+export * from './vault/TngblIcon';
+export * from './vault/UmaIcon'
 
 /* Others Icons */
 export * from './others/CheckboxMark';
