@@ -35,6 +35,7 @@ export class ApyTooltipComponent implements OnInit {
     this.getRewardTokeName();
   }
 
+  // TODO change logic
   getRewardTokeName(): void {
     if (this.vault) {
       this.vault.rewardTokens.forEach(reward => {
@@ -139,7 +140,7 @@ export class ApyTooltipComponent implements OnInit {
 
   getAdditionalDescription(): string | null {
     if (this.vault) {
-      return  getAdditionalDescription(this.vault, this.chainId);
+      return getAdditionalDescription(this.vault, this.chainId);
     }
     return null;
   }

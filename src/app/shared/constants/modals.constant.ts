@@ -13,4 +13,5 @@ export enum MODALS_IDS {
   STRATEGIES = 'STRATEGIES',
   NETWORKS = 'NETWORKS',
   ROUTE = 'ROUTE',
+  APY = 'APY'
 }

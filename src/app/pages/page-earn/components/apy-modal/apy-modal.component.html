@@ -1,0 +1,76 @@
+<tetu-select-drawer
+  [isVisible]="isVisible"
+  [isClosable]="true"
+  (closeDrawer)="onClose()"
+>
+  <div class="vault">
+    <div class="g-flex g-flex--align-center">
+      <i
+        *ngFor="let icon of getIconForVault()"
+        class="icon__coin g-flex__item-fixed vault__item__icon"
+        nz-icon
+        [nzType]="icon">
+      </i>
+      <div class="vault__item__name">
+        <div class="text__title4">
+          {{vault?.name || ''}}
+        </div>
+        <div class="text__title6 title">
+          {{getPlatform()}}
+        </div>
+      </div>
+    </div>
+
+    <div class="vault__item__description title">
+      {{getDescription()}}
+      <div [innerHTML]="getAdditionalDescription()"></div>
+    </div>
+
+    <div class="vault__item__autocompound">
+      <div class="text__title5">
+        AUTOCOMPOUND
+      </div>
+      <div class="title">
+        Autocompounded APY calculated with daily compound period.
+        It does not include any additional yield (swap fees, staking profit and etc).
+      </div>
+      <div>
+        <tetu-apy-details type="Vault" [data]="apyDetails?.autoCompound"></tetu-apy-details>
+      </div>
+      <div class="vault__item__autocompound__trading" *ngIf="canShowTradingFeeApy()">
+        <tetu-apy-details type="Trading Fees:" [data]="apyDetails?.tradingFee"></tetu-apy-details>
+      </div>
+    </div>
+
+    <div *ngIf="canShowRewards()" class="vault__item__reward">
+      <div class="text__title5">
+        Claimable rewards
+      </div>
+      <div class="title">
+        Claimable rewards APY calculated with monthly compound period
+      </div>
+
+      <div *ngFor="let reward of vault?.rewardTokens || []; index as i">
+        <div class="g-flex g-flex--align-center">
+          <div class="vault__item__reward__item__icon">
+            <i
+              class=".icon__small g-flex__item-fixed"
+              nz-icon
+              [nzType]="getIcon(reward)">
+            </i>
+          </div>
+          <div class="vault__item__reward__item__name">
+            {{rewardTokenNames[i]}}
+          </div>
+          <span *ngIf="canShowApy(i); else noApy" class="title">{{getAprForRewardToken(i)}}% APR {{getApyForRewardToken(i)}}% APY</span>
+          <ng-template #noApy>
+            -
+          </ng-template>
+        </div>
+      </div>
+      <div>
+
+      </div>
+    </div>
+  </div>
+</tetu-select-drawer>

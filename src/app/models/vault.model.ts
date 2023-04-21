@@ -29,6 +29,15 @@ export class VaultModel {
   balancerBoost: number = 0;
   ableToBoostUsd: number = 0;
 
+  ppfsAprMonth: number = 0;
+  ppfsAprYear: number = 0;
+
+  underlyingVaults: VaultModel[] = [];
+
+  swapFeesAprMonthly: number = 0;
+  swapFeesAprYearly: number = 0;
+
+
   constructor(
     addr: string,
     name: string,

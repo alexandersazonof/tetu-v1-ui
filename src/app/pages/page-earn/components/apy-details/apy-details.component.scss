@@ -1,0 +1,43 @@
+.apy {
+  border-radius: 4px;
+  padding: 8px;
+  background: #313d4f;
+
+  &__name {
+    width: 35%
+  }
+
+  &__year {
+    width: 20%
+  }
+
+  &__month {
+    width: 20%
+  }
+
+  &__current {
+    width: 20%
+  }
+
+  &__item {
+    &__tak {
+      width: 15%
+    }
+
+    &__name {
+      width: 20%
+    }
+
+    &__year {
+      width: 20%
+    }
+
+    &__month {
+      width: 20%
+    }
+
+    &__current {
+      width: 20%
+    }
+  }
+}

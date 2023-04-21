@@ -17,6 +17,7 @@ import { AppComponent } from './app.component';
 import { GraphQLModule } from './graphql.module';
 import { SharedModule } from "@shared/shared.module";
 import { CustomIconsProviderModule } from "@helpers/icons/icons-provider.module";
+import { PageEarnModule } from "./pages/page-earn/page-earn.module";
 
 registerLocaleData(localeRu);
 
@@ -41,7 +42,8 @@ registerLocaleData(localeRu);
     NzNotificationModule,
     DeviceIfDirectiveModule,
     SharedModule,
-    AppTranslateModule
+    AppTranslateModule,
+    PageEarnModule
   ],
   providers: [
     {

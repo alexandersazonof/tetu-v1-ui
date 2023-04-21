@@ -1,0 +1,50 @@
+<div class="apy">
+  <div class="g-flex g-flex--align-center">
+    <div class="apy__name text__title5">
+      {{type}}
+    </div>
+    <div class="apy__year title">
+      Last year
+    </div>
+    <div class="apy__month title">
+      Last month
+    </div>
+    <div class="apy__current title">
+      Current
+    </div>
+  </div>
+  <div class="g-flex g-flex--align-center">
+    <div class="apy__item__tak">
+
+    </div>
+    <div class="apy__item__name">
+      APR
+    </div>
+    <div class="apy__item__year">
+      {{formatNumber(data?.year?.apr)}}
+    </div>
+    <div class="apy__item__month">
+      {{formatNumber(data?.month?.apr)}}
+    </div>
+    <div class="apy__item__current">
+      {{formatNumber(data?.current?.apr)}}
+    </div>
+  </div>
+  <div class="g-flex g-flex--align-center">
+    <div class="apy__item__tak">
+
+    </div>
+    <div class="apy__item__name">
+      APY
+    </div>
+    <div class="apy__item__year">
+      {{formatNumber(data?.year?.apy)}}
+    </div>
+    <div class="apy__item__month">
+      {{formatNumber(data?.month?.apy)}}
+    </div>
+    <div class="apy__item__current">
+      {{formatNumber(data?.current?.apy)}}
+    </div>
+  </div>
+</div>

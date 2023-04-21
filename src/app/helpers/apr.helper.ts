@@ -1,5 +1,5 @@
 import { VaultModel } from "@models";
-import { ApyDetailsModel, ApyModel } from "@models/apy.model";
+import { ApyDetailsModel, ApyFullDetailsInfoModel, ApyFullDetailsModel, ApyModel } from "@models/apy.model";
 
 export function calculateApyByVault(vault: VaultModel): ApyDetailsModel {
 
@@ -23,4 +23,21 @@ export function calculateApy(apr: number, period = 12): ApyModel {
   const apy = (Math.pow(1 + apr / 100 / period, period) - 1) * 100
 
   return new ApyModel(apr, apy);
+}
+
+export function calculateDetailsApy(vault: VaultModel): ApyFullDetailsModel {
+
+  const autoCompound = calculateForPeriodApy(vault.ppfsAprYear / 10 ** 18, vault.ppfsAprMonth / 10 ** 18, vault.fullApr / 10 ** 18)
+  const underlying = vault.underlyingVaults.map(underlying => calculateForPeriodApy(underlying.ppfsAprYear, underlying.ppfsAprMonth, underlying.fullApr))
+  const tradingFee = calculateForPeriodApy(vault.swapFeesAprYearly, vault.swapFeesAprMonthly, vault.swapFeesAprDaily)
+
+  return new ApyFullDetailsModel(autoCompound, underlying, tradingFee);
+}
+
+export function calculateForPeriodApy(year: number, month: number, current: number): ApyFullDetailsInfoModel {
+  const yearApy = calculateApy(year, 365)
+  const monthApy = calculateApy(month, 365)
+  const currentApy = calculateApy(current, 365)
+
+  return new ApyFullDetailsInfoModel(currentApy, monthApy, yearApy);
 }

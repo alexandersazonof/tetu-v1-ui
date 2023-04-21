@@ -16,9 +16,15 @@
       REWARDS
     </div>
   </div>
-  <div (click)="goToVault(vault.addr)" class="vault__item pointer g-flex g-flex--align-center"
+  <div class="vault__item pointer g-flex g-flex--align-center"
        *ngFor="let vault of vaults">
-    <div class="vault__item__icon">
+    <tetu-apy-modal
+      [account]="account"
+      [chainId]="chainId"
+      [vault]="vault"
+      [modalId]="MODALS_IDS.APY + vault.addr">
+    </tetu-apy-modal>
+    <div (click)="goToVault(vault.addr)" class="vault__item__icon">
       <i
         *ngFor="let icon of getIconForVault(vault)"
         class="icon__coin g-flex__item-fixed vault__item__icon__item"
@@ -26,7 +32,7 @@
         [nzType]="icon">
       </i>
     </div>
-    <div class="vault__item__name">
+    <div (click)="goToVault(vault.addr)" class="vault__item__name">
       <div class="g-flex g-flex--align-center">
         <div class="vault__item__name__title">
           <div class="text__title4">
@@ -43,13 +49,13 @@
     </div>
     <div class="vault__item__apy">
       <ng-template
-        #apyModal>
+        #apyTooltip>
         <tetu-apy-tooltip [account]="account" [chainId]="chainId" [vault]="vault"></tetu-apy-tooltip>
       </ng-template>
       <tetu-tooltip
         placement="bottom"
-        [tooltipTitle]="apyModal">
-        <div class="g-flex g-flex--align-center">
+        [tooltipTitle]="apyTooltip">
+        <div (click)="onOpenApy(vault.addr)" class="g-flex g-flex--align-center">
         <span class="vault__item__apy__item icon">
           <i
             class="icon__skinny g-flex__item-fixed"

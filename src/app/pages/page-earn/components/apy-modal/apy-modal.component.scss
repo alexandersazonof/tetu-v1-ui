@@ -1,0 +1,40 @@
+.vault {
+
+  padding: 14px 24px 24px;
+
+  &__item {
+
+    &__icon {
+      margin-right: -12px;
+    }
+
+    &__name {
+      margin-left: 14px;
+    }
+
+    &__description {
+      margin-top: 10px;
+    }
+
+    &__autocompound {
+      margin-top: 10px;
+
+      &__trading {
+        margin-top: 10px;
+      }
+    }
+
+    &__reward {
+      margin-top: 10px;
+      &__item {
+        &__name {
+          margin-right: 5px;
+        }
+
+        &__icon {
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+}

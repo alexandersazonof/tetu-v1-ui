@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@
 import { VaultDataService } from "@services/data/vault-data.service";
 import { VaultModel } from "@models";
 import { takeUntil } from "rxjs";
-import { DestroyService, ProviderService } from "@tetu_io/tetu-ui";
+import { DestroyService, Mediator, ModalActions, ProviderService } from "@tetu_io/tetu-ui";
 import { numberToCompact } from "@helpers";
 import { formatUnits } from "ethers/lib/utils";
 import { TokenService } from '@services/onchain/token.service';
@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 import { calculateApyByVault } from "@helpers/apr.helper";
 import { DEFAULT_ICON, EXCLUDE_VAULT_ICON, getIcon } from "@constants/icons/icons";
 import { getPlatformByVault } from "@helpers/platform.helper";
+import { MODALS_IDS } from '@shared/constants/modals.constant';
 
 @Component({
   selector: 'tetu-earn',
@@ -25,6 +26,8 @@ export class EarnComponent implements OnInit {
   chainId = 0;
 
   vaults: VaultModel[] = [];
+  MODALS_IDS = MODALS_IDS;
+
 
   constructor(
     private changeDetectorRef: ChangeDetectorRef,
@@ -33,7 +36,7 @@ export class EarnComponent implements OnInit {
     private tokenService: TokenService,
     private providerService: ProviderService,
     private router: Router,
-
+    private mediator: Mediator
   ) {}
 
   ngOnInit(): void {
@@ -113,5 +116,10 @@ export class EarnComponent implements OnInit {
 
   showRedoIcon(vault: VaultModel): boolean {
     return vault.rewardsApr.filter(r => r > 0).length > 0;
+  }
+
+  onOpenApy(address: string) {
+    const modalId = MODALS_IDS.APY + address;
+    this.mediator.dispatch(new ModalActions.ModalOpen(modalId));
   }
 }

@@ -65,3 +65,28 @@ export class ApyModel {
     this.apr = apr
   }
 }
+
+
+export class ApyFullDetailsModel {
+  autoCompound: ApyFullDetailsInfoModel;
+  underlying: ApyFullDetailsInfoModel[] = [];
+  tradingFee: ApyFullDetailsInfoModel;
+
+  constructor(autoCompound: ApyFullDetailsInfoModel, underlying: ApyFullDetailsInfoModel[], tradingFee: ApyFullDetailsInfoModel) {
+    this.autoCompound = autoCompound;
+    this.underlying = underlying;
+    this.tradingFee = tradingFee;
+  }
+}
+
+export class ApyFullDetailsInfoModel {
+  current: ApyModel;
+  month: ApyModel;
+  year: ApyModel;
+
+  constructor(current: ApyModel, month: ApyModel, year: ApyModel) {
+    this.current = current;
+    this.month = month;
+    this.year = year;
+  }
+}
